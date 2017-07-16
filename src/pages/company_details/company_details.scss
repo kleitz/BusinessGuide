@@ -1,0 +1,23 @@
+page-company_details {
+  ion-row {
+    align-items: center;
+    text-align: center;
+    //$grid-max-widths: ( sm: 40px, md: 100px, lg: 300px, xl: 500px );
+  }
+  ion-col {
+    $grid-max-widths: ( sm: 40px, md: 100px, lg: 300px, xl: 500px );
+  }
+    .ion-item-custom {
+      border-radius: 20px !important;
+      padding-left: 30px !important;
+      margin-bottom: 10px;
+      border: 1px solid #000099;
+      border-bottom: 0px !important;
+      box-shadow: none !important;
+      background: #BBBBBB;
+    }
+
+    .main_background {
+      background: #DDDDDD
+    }
+}

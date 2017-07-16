@@ -1,0 +1,24 @@
+
+<!-- <ion-menu [content]="mycontent" side="left" width="200">
+  <ion-content>
+    <ion-list>
+	 <ion-list-header>
+    Company categories
+  </ion-list-header>
+      <button ion-item *ngFor="let category of categories" (click)="openCategory(category)">
+        {{category.title}}
+      </button>
+    </ion-list>
+	<ion-list>
+	 <ion-list-header>
+    Product categories
+  </ion-list-header>
+      <button ion-item *ngFor="let subcategory of subcategories" (click)="openSubcategory(subcategory)">
+        {{subcategory.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu> -->
+
+
+<ion-nav #mycontent [root]="rootPage"></ion-nav>

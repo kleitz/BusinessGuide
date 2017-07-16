@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-navbar>
+    <!-- <button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button> -->
+    <ion-title>Company Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="main_background">
+  <h3 text-center *ngIf="selectedItem">
+    {{selectedItem.title}}
+    <ion-icon [name]="selectedItem.icon"></ion-icon>
+  </h3>
+  <ion-row>
+    <ion-col width-300>
+      <h1 class="ion-item-custom">{{selectedItem.name}}</h1>
+    </ion-col>
+    <ion-col>
+      <p>{{selectedItem.description}}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <p class="ion-item-custom">Phone number: </p>
+    </ion-col>
+    <ion-col width-400>
+      <p>{{selectedItem.headquarters.phone_number}}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col width-100>
+      <p class="ion-item-custom">Address: </p>
+    </ion-col>
+    <ion-col width-400>
+      <p>{{selectedItem.headquarters.address}}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row >
+    <ion-col col-6 col-sm-10 col-md-6 col-lg-4 col-xl-3>
+  <button ion-button icon-right (click)="showOnMap(selectedItem.headquarters.latitude,selectedItem.headquarters.longitude)"><ion-icon name="map"></ion-icon>
+  Show on map
+  </button>
+    </ion-col>
+    </ion-row>
+    <ion-row >
+    <ion-col col-6 col-sm-5 col-md-6 col-lg-4 col-xl-3>
+      <button ion-button icon-right (click)="showProducts(selectedItem)">Show products<ion-icon name="list-box"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col col-6 col-sm-5 col-md-6 col-lg-4 col-xl-3>
+    <button ion-button icon-right (click)="addToFavourite(selectedItem)">Favourites<ion-icon name="star"></ion-icon>
+    </button>
+    </ion-col>
+  </ion-row>
+  <h4>Share : </h4>
+  <ion-row>
+    <ion-col col-6 col-sm-4 col-md-6 col-lg-4 col-xl-3>
+      <button ion-button icon-right (click)="regularShare()">RegularShare
+      </button>
+    </ion-col>
+    <ion-col col-6 col-sm-4 col-md-6 col-lg-4 col-xl-3>
+      <button ion-button icon-right (click)="twitterShare()"><ion-icon name="logo-twitter">Twitter</ion-icon>
+      </button>
+    </ion-col >
+    <ion-col col-6 col-sm-4 col-md-6 col-lg-4 col-xl-3>
+      <button ion-button icon-right (click)="instagramShare()"><ion-icon name="logo-instagram">Instashare</ion-icon>
+      </button>
+    </ion-col>
+    <ion-col col-6 col-sm-4 col-md-6 col-lg-4 col-xl-3>
+      <button ion-button icon-right (click)="whatsappShare()"><ion-icon name="logo-whatsapp">WhatsApp</ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+  <ion-list>
+    <ion-list-header>
+     Departments :
+    </ion-list-header>
+    <ion-item *ngFor="let department of selectedItem.departments">
+      <ion-row>
+        <ion-col width-100>
+          <p>Department phone number: </p>
+        </ion-col>
+        <ion-col width-400>
+          <p>{{department.phone_number}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-100>
+          <p>Department address: </p>
+        </ion-col>
+        <ion-col width-400>
+          <p>{{department.address}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <button ion-button icon-right (click)="showOnMap(department.latitude,department.longitude)">Open Map <ion-icon name="map"></ion-icon>
+        </button>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+</ion-content>

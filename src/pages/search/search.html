@@ -1,0 +1,55 @@
+<!-- <ion-menu [content]="search-nav">
+  <ion-content>
+    <ion-list>
+      <p>some menu content, could be list items</p>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+</ion-navbar> -->
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>Search results</ion-title>
+  </ion-navbar>
+  <ion-searchbar [(ngModel)]="myInput.val1" (ionInput)="getItems($event)"></ion-searchbar>
+  <button ion-button color="light" icon-right (click)="openFavorites()">View favorites <ion-icon name="eye"></ion-icon></button>
+</ion-header>
+<ion-menu [content]="mycontent" side="left" width="200">
+  <ion-content>
+
+      <ion-list>
+        <ion-list-header>
+       Company categories
+     </ion-list-header>
+         <button ion-item *ngFor="let category of categories" (click)="openCategory(category)">
+           {{category.name}}
+         </button>
+       </ion-list>
+       <ion-list>
+        <ion-list-header>
+       Product categories
+     </ion-list-header>
+         <button ion-item *ngFor="let subcategory of subcategories" (click)="openSubcategory(subcategory)">
+           {{subcategory.name}}
+         </button>
+       </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-content padding>
+<ion-list>
+  <ion-item *ngFor="let company of companies">
+    <!--<ion-thumbnail item-left>
+      <img src="img/thumbnail-totoro.png">
+    </ion-thumbnail>-->
+    <h2>{{company.name}}</h2>
+    <p>{{company.description}}</p>
+    <button ion-button clear item-right (click)="itemTapped($event,company)">View</button>
+  </ion-item>
+</ion-list>
+</ion-content>
+<!-- <ion-nav #search-nav></ion-nav> -->
+<ion-nav #mycontent [root]="rootPage"></ion-nav>
